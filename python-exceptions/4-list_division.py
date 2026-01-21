@@ -11,11 +11,11 @@ def list_division(my_list_1, my_list_2, list_length):
             temp_result = 0 
             print("division by 0")
         except TypeError:
+            temp_result = 0
             print("wrong type")
-            temp_result = 0
         except IndexError:
-            print("out of range")
             temp_result = 0
+            print("out of range")
         finally:
             result.append(temp_result)
             temp_result = 0
