@@ -11,12 +11,8 @@ def list_division(my_list_1, my_list_2, list_length):
             temp_result = 0 
             print("division by 0")
         except TypeError:
-            if not isinstance(my_list_1[i], (int, float)):
-                print("wrong type")
-                temp_result = 0
-            elif not isinstance(my_list_2[i], (int, float)):
-                print("wrong type")
-                temp_result = 0
+            print("wrong type")
+            temp_result = 0
         except IndexError:
             print("out of range")
             temp_result = 0
