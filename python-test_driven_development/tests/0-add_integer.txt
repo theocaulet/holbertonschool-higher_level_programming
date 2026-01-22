@@ -19,10 +19,3 @@ TypeError: a must be an integer
 -8
 >>> add_integer(2.5)
 100
->>> add_integer("hello", "world")
-Traceback (most recent call last):
-...
-TypeError: a must be an integer
-
-
-
