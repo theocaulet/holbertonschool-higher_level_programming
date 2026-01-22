@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""function that adds two integers."""
+
+
 def add_integer(a, b=98):
     """
     Add two integers and return the result.
@@ -7,7 +10,7 @@ def add_integer(a, b=98):
     a: first integer
     b: second integer (default is 98)
 
-    Return:
+    Returns:
     The sum of a and b
 
     Raises:
