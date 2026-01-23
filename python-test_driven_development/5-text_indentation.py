@@ -11,8 +11,11 @@ def text_indentation(text):
     Raises:
     TypeError: if text is not a string
     """
+    # Check if text is a string
     if not isinstance(text, str):
         raise TypeError("text must be a string")
+
+    # Print text with 2 new lines after '.', '?', and ':'
     i = 0
     length = len(text)
     while i < length:
