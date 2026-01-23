@@ -4,34 +4,34 @@ Test file for add_integer function
 # Import the function
     >>> add_integer = __import__('0-add_integer').add_integer
 
-# Sum of two integer
+Test: Sum of two integer
     >>> add_integer(1, 2)
     3
 
-# Sum using default value of b
+Test: Sum using default value of b
     >>> add_integer(2)
     100
 
-# Sum with float values, converted to int
+Test: Sum with float values, converted to int
     >>> add_integer(100.3, -2)
     98
 
-# b is not an integer: TypeError
+Test: b is not an integer: TypeError
     >>> add_integer(4, "School")
     Traceback (most recent call last):
     ...
     TypeError: b must be an integer
 
-# a is not an integer: TypeError
+Test: a is not an integer: TypeError
     >>> add_integer(None)
     Traceback (most recent call last):
     ...
     TypeError: a must be an integer
 
-# Sum of two zeros
+Test: Sum of two zeros
     >>> add_integer(0, 0)
     0
 
-# Sum with only a float (b defaults to 98)
+Test: Sum with only a float (b defaults to 98)
     >>> add_integer(2.5)
     100
