@@ -1,10 +1,11 @@
 #!/usr/bin/python3
-"""Defines a Square class with size validation and area calculation."""
+"""Defines a Square class."""
 
 
 class Square:
     def __init__(self, size=0):
-        self.size = size
+        """Initialize a Square instance with size validation."""
+        self.__size = size
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -12,4 +13,4 @@ class Square:
 
     def area(self):
         """Define the current Square area."""
-        return self.size * self.size
+        return self.__size * self.__size
