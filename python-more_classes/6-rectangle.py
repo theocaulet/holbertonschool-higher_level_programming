@@ -3,6 +3,8 @@
 
 
 class Rectangle:
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """
         Initialize a rectangle instance with width and height.
@@ -11,6 +13,7 @@ class Rectangle:
         """
         self.__width = width
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -57,3 +60,12 @@ class Rectangle:
         else:
             return f"{self.__width * '#'}" + (f"\n{self.__width * '#'}" *
                                               (self.__height - 1))
+
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when a rectangle is deleted."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1

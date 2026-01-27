@@ -3,6 +3,9 @@
 
 
 class Rectangle:
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """
         Initialize a rectangle instance with width and height.
@@ -11,6 +14,7 @@ class Rectangle:
         """
         self.__width = width
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -51,9 +55,39 @@ class Rectangle:
         return 2 * (self.__width + self.__height)
 
     def __str__(self):
-        """Print the rectangle with the character #."""
+        """Print the rectangle with the character stored in print_symbol."""
         if self.__width == 0 or self.__height == 0:
             return ""
         else:
-            return f"{self.__width * '#'}" + (f"\n{self.__width * '#'}" *
-                                              (self.__height - 1))
+            return f"{self.__width * str(self.print_symbol)}" + \
+                (f"\n{self.__width * str(self.print_symbol)}"
+                 * (self.__height - 1))
+
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when a rectangle is deleted."""
+        print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Return the biggest rectangle based on the area."""
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if rect_1.area() == rect_2.area():
+            return rect_1
+        elif rect_1.area() > rect_2.area():
+            return rect_1
+        else:
+            return rect_2
+
+    @classmethod
+    def square(cls, size=0):
+        """Return a new_rectangle."""
+        new_rectangle = cls(size, size)
+        return new_rectangle

@@ -57,3 +57,11 @@ class Rectangle:
         else:
             return f"{self.__width * '#'}" + (f"\n{self.__width * '#'}" *
                                               (self.__height - 1))
+
+    def __repr__(self):
+        """Return a string representation of the rectangle."""
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Print a message when a rectangle is deleted."""
+        print("Bye rectangle...")
