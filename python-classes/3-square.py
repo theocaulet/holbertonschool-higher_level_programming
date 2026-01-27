@@ -5,7 +5,7 @@
 class Square:
     def __init__(self, size=0):
         """Initialize a Square instance with size validation."""
-        self.__size = size
+        self.size = size
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
         if size < 0:
@@ -13,4 +13,4 @@ class Square:
 
     def area(self):
         """Define the current Square area."""
-        return self.__size * self.__size
+        return self.size * self.size
