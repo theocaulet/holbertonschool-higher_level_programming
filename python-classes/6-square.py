@@ -37,11 +37,11 @@ class Square:
         if self.size == 0:
             print()
         else:
+            if self.position[1] > 0:
+                for _ in range(self.position[1]):
+                    print()
             for _ in range(self.size):
                 print(" " * self.position[0] + "#" * self.size)
-        if self.position[1] > 0:
-            for _ in range(self.position[1]):
-                print()
 
     @property
     def position(self):
@@ -58,4 +58,4 @@ class Square:
             if not isinstance(element, int) or element < 0:
                 raise TypeError("position must be a tuple"
                                 " of 2 positive integers")
-            self.__position = value
+        self.__position = value
