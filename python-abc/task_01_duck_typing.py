@@ -18,7 +18,7 @@ class Shape(ABC):
 
 
 class Circle(Shape):
-    """Create a Circle class."""
+    """Create a Circle class that inherits from Shape."""
     def __init__(self, radius):
         """Initialize the circle with a radius."""
         self.radius = radius
@@ -35,7 +35,7 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    """Create a Rectangle class."""
+    """Create a Rectangle class that inherits from Shape."""
     def __init__(self, width, height):
         """Initialize the rectangle with width and height."""
         self.width = width
