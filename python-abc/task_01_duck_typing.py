@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Define an abstract base class Shape with area and perimeter methods."""
 from abc import ABC, abstractmethod
 """Import the necessary components from the abc module."""
 
