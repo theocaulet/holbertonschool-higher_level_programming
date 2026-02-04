@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Create a mixin class for swimming behavior."""
+
+
 class SwimMixin:
     """Create a mixin class for swimming behavior."""
     def swim(self):
