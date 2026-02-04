@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module that creates a VerboseList class inheriting from list."""
+
+
 class VerboseList(list):
     """Create a VerboseList class."""
     def append(self, item):
