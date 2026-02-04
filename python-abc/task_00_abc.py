@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Mosule that defines an abstract Animal class
+ and its subclasses Dog and Cat."""
 from abc import ABC, abstractmethod
 """Import the necessary components from the abc module."""
 
