@@ -25,12 +25,12 @@ class Circle(Shape):
 
     def area(self):
         """Define the area of the circle."""
-        PI = 3.14
+        PI = 3.14159
         return PI * (self.radius * self.radius)
 
     def perimeter(self):
         """Define the perimeter of the circle."""
-        PI = 3.14
+        PI = 3.14159
         return 2 * PI * self.radius
 
 
