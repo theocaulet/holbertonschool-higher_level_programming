@@ -20,7 +20,7 @@ class CountedIterator:
         Args:
             iterable: Any iterable object (list, tuple, string, etc.).
         """
-        self.iterable = iter(iterable)
+        self.iterable = iterable.__iter__()
         self.count = 0
 
     def __iter__(self):
