@@ -48,5 +48,7 @@ class CountedIterator:
         Raises:
             StopIteration: When the iterable is exhausted.
         """
+        if self.count is None:
+            raise StopIteration
         self.count += 1
         return next(self.iterable)
