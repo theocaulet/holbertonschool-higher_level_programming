@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Module that defines a Rectangle class inheriting from BaseGeometry."""
+"""Module that defines a class BaseGeometry and Rectangle."""
 
 
 class BaseGeometry:
@@ -10,8 +10,6 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """Validates value."""
-        if isinstance(value, bool):
-            raise TypeError(f"{name} must be an integer")
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
