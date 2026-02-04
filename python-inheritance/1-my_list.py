@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module that defines a class MyList."""
+
+
 class MyList(list):
     """Create a class Mylist that inherits from list."""
     def print_sorted(self):
