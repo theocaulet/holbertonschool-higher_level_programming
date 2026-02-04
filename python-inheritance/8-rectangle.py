@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module that defines a Rectangle class inheriting from BaseGeometry."""
+
+
 class BaseGeometry:
     """Create a class BaseGeometry"""
     def area(self):
