@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module that creates a FlyingFish class inheriting from Fish and Bird."""
+
+
 class Fish:
     """Create a Fish class."""
     def swim(self):
