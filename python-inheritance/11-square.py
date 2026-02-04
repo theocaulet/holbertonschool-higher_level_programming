@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Module that defines a BaseGeometry, Rectangle and Square class."""
+
+
 class BaseGeometry:
     """Create a class BaseGeometry"""
     def area(self):
@@ -7,6 +10,8 @@ class BaseGeometry:
 
     def integer_validator(self, name, value):
         """Validates value."""
+        if isinstance(value, bool):
+            raise TypeError(f"{name} must be an integer")
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
