@@ -20,16 +20,8 @@ class CountedIterator:
         Args:
             iterable: Any iterable object (list, tuple, string, etc.).
         """
-        self.iterable = iter(iterable)
-        self.count = 0
-
-    def __iter__(self):
-        """Return the iterator object itself.
-
-        Returns:
-            self: The CountedIterator instance.
-        """
-        return self
+        self.__iterable = iter(iterable)
+        self.__count = 0
 
     def get_count(self):
         """Get the current count of iterations.
@@ -37,7 +29,7 @@ class CountedIterator:
         Returns:
             int: The number of items iterated through so far.
         """
-        return self.count
+        return self.__count
 
     def __next__(self):
         """Return the next item from the iterable and increment count.
@@ -48,7 +40,9 @@ class CountedIterator:
         Raises:
             StopIteration: When the iterable is exhausted.
         """
-        if self.count is None:
+        try:
+            item = next(self.__iterable)
+            self.__count += 1
+            return item
+        except StopIteration:
             raise StopIteration
-        self.count += 1
-        return next(self.iterable)
