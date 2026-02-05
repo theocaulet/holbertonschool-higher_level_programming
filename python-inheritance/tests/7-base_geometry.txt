@@ -6,7 +6,7 @@ Test of Area()
 >>> try
 ... bg.area()
 ... except Exception as e:
-... print("[{}] {})".format(e.__class__.__name__, e))
+... print("[{}] {}".format(e.__class__.__name__, e))
 
 integer_validator tests: valid values
 >>> bg.integer_validator("my_int", 12)
