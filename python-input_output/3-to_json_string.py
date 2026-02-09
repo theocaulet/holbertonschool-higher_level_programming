@@ -3,6 +3,6 @@
 
 
 def to_json_string(my_obj):
-    """Define t_json_string function."""
+    """Define to_json_string function."""
     import json
     return json.dumps(my_obj)
