@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-import pickle
 """Function that serializes an object to a file
  and deserializes an object from a file."""
+import pickle
 
 
 def serialize_and_save_to_file(data, filename):
