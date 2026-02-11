@@ -29,5 +29,8 @@ class CustomObject:
     def deserialize(cls, filename):
         """Define a class method to deserialize
           a CustomObject instance from a file using pickle."""
-        with open(filename, 'rb') as file:
-            return pickle.load(file)
+        try:
+            with open(filename, 'rb') as file:
+                return pickle.load(file)
+        except Exception:
+            return None
