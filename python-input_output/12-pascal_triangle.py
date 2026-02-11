@@ -15,7 +15,8 @@ def pascal_triangle(n):
         else:
             line = [1]
             for col in range(1, row):
-                line.append(triangle[row - 1][col - 1] + triangle[row - 1][col])
+                line.append(triangle[row - 1][col - 1]
+                            + triangle[row - 1][col])
             line.append(1)
         triangle.append(line)
     return triangle
