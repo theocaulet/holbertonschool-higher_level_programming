@@ -4,8 +4,6 @@
 
 def pascal_triangle(n):
     """Returns a list of lists of integers representing Pascal's triangle"""
-    if not isinstance(n, int):
-        raise TypeError("n must be an integer")
     if n <= 0:
         return []
     triangle = []
