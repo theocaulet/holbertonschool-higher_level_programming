@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""This module provides functions to convert CSV files to JSON format."""
 import csv
 import json
-"""This module provides functions to convert CSV files to JSON format."""
 
 
 def convert_csv_to_json(csv_file, json_file='data.json'):
