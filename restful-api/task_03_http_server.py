@@ -1,7 +1,4 @@
 #!/usr/bin/python3
-import http.server
-import socketserver
-import json
 """
 This module implements a simple HTTP server that responds to GET requests
  on two endpoints: /data and /status.
@@ -10,6 +7,9 @@ This module implements a simple HTTP server that responds to GET requests
 -The /status endpoint returns a plain text response with the message "OK".
 -For any other endpoint, the server responds with a 404 Not Found error.
 """
+import http.server
+import socketserver
+import json
 
 
 PORT = 8000
