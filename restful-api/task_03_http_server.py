@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import http.server
+import socketserver
 import json
 """
 This module implements a simple HTTP server that responds to GET requests
@@ -51,6 +52,6 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"Not Found")
 
 
-if __name__ == "__main__":
-    server = http.server.HTTPServer((HOST, PORT), HTTPserver)
-    server.serve_forever()
+with socketserver.TCPServer((HOST, PORT), HTTPserver) as httpd:
+    print(f"Serving on {HOST}:{PORT}")
+    httpd.serve_forever()
