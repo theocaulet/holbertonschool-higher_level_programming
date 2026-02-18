@@ -13,7 +13,6 @@ import json
 
 
 PORT = 8000
-HOST = "localhost"
 
 
 class HTTPserver(http.server.BaseHTTPRequestHandler):
@@ -52,6 +51,6 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"Not Found")
 
 
-with socketserver.TCPServer((HOST, PORT), HTTPserver) as httpd:
-    print(f"Serving on {HOST}:{PORT}")
+with socketserver.TCPServer(("", PORT), HTTPserver) as httpd:
+    print("Serving at port", PORT)
     httpd.serve_forever()
