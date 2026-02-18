@@ -41,6 +41,5 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    Handler = HTTPserver
-    server = http.server.HTTPServer((HOST, PORT), Handler)
+    server = http.server.HTTPServer((HOST, PORT), HTTPserver)
     server.serve_forever()
