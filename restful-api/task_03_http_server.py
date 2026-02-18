@@ -7,13 +7,11 @@ import socketserver
 import json
 
 
-class HTTPserver(http.server.SimpleHTTPRequestHandler):
-    """This class handles HTTP GET requests and responds with appropriate data
-      based on the requested endpoint."""
+class Handler(http.server.SimpleHTTPRequestHandler):
+    """HTTP handler for a small JSON/text API."""
+
     def do_GET(self):
-        """Define the behavior for GET requests. It checks the requested path
-          and responds with JSON data for /data, a plain text message
-            for /status, and a 404 error for any other path."""
+        """Serve the API responses for known endpoints."""
         if self.path == "/":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
@@ -45,9 +43,9 @@ class HTTPserver(http.server.SimpleHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"404 Not Found")
+            self.wfile.write(b"Endpoint Not Found")
 
 
 PORT = 8000
-with socketserver.TCPServer(("", PORT), HTTPserver) as httpd:
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
     httpd.serve_forever()
