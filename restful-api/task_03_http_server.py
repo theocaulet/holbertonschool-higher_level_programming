@@ -7,12 +7,10 @@ This module implements a simple HTTP server that responds to GET requests
 -The /status endpoint returns a plain text response with the message "OK".
 -For any other endpoint, the server responds with a 404 Not Found error.
 """
+
 import http.server
 import socketserver
 import json
-
-
-PORT = 8000
 
 
 class HTTPserver(http.server.BaseHTTPRequestHandler):
@@ -49,9 +47,10 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
             self.send_response(404)
             self.send_header("Content-type", "text/plain")
             self.end_headers()
-            self.wfile.write(b"Not Found")
+            self.wfile.write(b"404 Not Found")
 
 
+PORT = 8000
 with socketserver.TCPServer(("", PORT), HTTPserver) as httpd:
     print("Serving at port", PORT)
     httpd.serve_forever()
