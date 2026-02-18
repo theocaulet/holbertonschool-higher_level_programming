@@ -1,12 +1,6 @@
 #!/usr/bin/python3
-"""
-This module implements a simple HTTP server that responds to GET requests
- on two endpoints: /data and /status.
- The server listens on localhost at port 8000.
--The /data endpoint returns a JSON object containing sample data.
--The /status endpoint returns a plain text response with the message "OK".
--For any other endpoint, the server responds with a 404 Not Found error.
-"""
+"""This module implements a simple HTTP server that responds to GET requests
+ on two endpoints: /data and /status."""
 
 import http.server
 import socketserver
