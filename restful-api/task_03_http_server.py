@@ -7,7 +7,7 @@ import socketserver
 import json
 
 
-class HTTPserver(http.server.BaseHTTPRequestHandler):
+class HTTPserver(http.server.SimpleHTTPRequestHandler):
     """This class handles HTTP GET requests and responds with appropriate data
       based on the requested endpoint."""
     def do_GET(self):
