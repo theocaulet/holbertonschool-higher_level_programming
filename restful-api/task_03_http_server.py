@@ -40,6 +40,7 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
             self.wfile.write(b"Not Found")
 
 
-Handler = HTTPserver
-server = http.server.HTTPServer((HOST, PORT), Handler)
-server.serve_forever()
+if __name__ == "__main__":
+    Handler = HTTPserver
+    server = http.server.HTTPServer((HOST, PORT), Handler)
+    server.serve_forever()
