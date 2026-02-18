@@ -1,9 +1,15 @@
 #!/usr/bin/python3
 import requests
 import csv
+"""
+This module contains functions to interact with a RESTful API and
+save the data to a CSV file.
+"""
 
 
 def fetch_and_print_posts():
+    """Defines a function that fetches posts from a RESTful API
+      and prints their titles."""
     url = "https://jsonplaceholder.typicode.com/posts"
     r = requests.get(url)
     print(f"Status Code: {r.status_code}")
@@ -14,6 +20,8 @@ def fetch_and_print_posts():
 
 
 def fetch_and_save_posts():
+    """Defines a function that fetches posts from a RESTful API
+      and saves them to a CSV file."""
     url = "https://jsonplaceholder.typicode.com/posts"
     r = requests.get(url)
     if r.status_code == 200:
