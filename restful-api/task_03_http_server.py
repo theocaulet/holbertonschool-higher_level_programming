@@ -22,12 +22,23 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
         """Define the behavior for GET requests. It checks the requested path
           and responds with JSON data for /data, a plain text message
             for /status, and a 404 error for any other path."""
-        if self.path == "/data":
+        if self.path == "/":
+            self.send_response(200)
+            self.send_header("Content-type", "text/plain")
+            self.end_headers()
+            self.wfile.write(b"Hello, this is a simple API!")
+        elif self.path == "/data":
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
             data = {"name": "John", "age": 30, "city": "New York"}
             self.wfile.write(json.dumps(data).encode("utf-8"))
+        elif self.path == "/info":
+            self.send_response(200)
+            self.send_header("Content-type", "application/json")
+            self.end_headers()
+            info = {"version": "1.0", "description": "A simple API server"}
+            self.wfile.write(json.dumps(info).encode("utf-8"))
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
