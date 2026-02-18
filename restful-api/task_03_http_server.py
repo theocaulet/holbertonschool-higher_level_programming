@@ -37,7 +37,7 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header("Content-type", "application/json")
             self.end_headers()
-            self.wfile.write(json.dumps(info).encode("utf-8"))
+            self.wfile.write(json.dumps(info).encode("utf8"))
         elif self.path == "/status":
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
@@ -52,5 +52,4 @@ class HTTPserver(http.server.BaseHTTPRequestHandler):
 
 PORT = 8000
 with socketserver.TCPServer(("", PORT), HTTPserver) as httpd:
-    print("Serving at port", PORT)
     httpd.serve_forever()
