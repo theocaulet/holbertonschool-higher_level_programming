@@ -16,8 +16,14 @@ app.config["JWT_SECRET_KEY"] = "secret-key"
 jwt = JWTManager(app)
 
 users = {
-        "admin": generate_password_hash("admin"),
-        "user": generate_password_hash("user")
+        "admin": {
+            "password": generate_password_hash("admin"),
+            "role": "admin"
+        },
+        "user": {
+            "password": generate_password_hash("user"),
+            "role": "user"
+        }
         }
 
 
@@ -25,7 +31,7 @@ users = {
 def verify_password(username, password):
     """Validate user credentials for HTTP Basic authentication."""
     if username in users and \
-            check_password_hash(users.get(username), password):
+            check_password_hash(users[username]["password"], password):
         return username
 
 
@@ -39,13 +45,15 @@ def index():
 @app.route('/login', methods=['POST'])
 def login():
     """Authenticate a user and return a JWT access token."""
-    data = request.get_json()
+    data = request.get_json() or {}
     username = data.get('username')
     password = data.get('password')
-    if username in users and check_password_hash(users[username], password):
+    if username in users and check_password_hash(
+        users[username]["password"], password
+    ):
         access_token = create_access_token(
             identity=username,
-            additional_claims={"role": username}
+            additional_claims={"role": users[username]["role"]}
         )
         return jsonify(access_token=access_token), 200
     return jsonify({"msg": "Bad username or password"}), 401
@@ -76,7 +84,6 @@ def role_required(role):
 
 
 @app.route('/admin', methods=['GET'])
-@jwt_required()
 @role_required("admin")
 def admin():
     """Return a response for authenticated users with admin role."""
@@ -84,7 +91,6 @@ def admin():
 
 
 @app.route('/user', methods=['GET'])
-@jwt_required()
 @role_required("user")
 def user():
     """Return a response for authenticated users with user role."""
