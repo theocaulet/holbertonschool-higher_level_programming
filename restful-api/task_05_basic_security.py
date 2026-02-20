@@ -42,10 +42,11 @@ def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
-    if username in users and check_password_hash(
-        users[username], ["password"]
-    ):
-        access_token = create_access_token(identity=username)
+    if username in users and check_password_hash(users[username], password):
+        access_token = create_access_token(
+            identity=username,
+            additional_claims={"role": username}
+        )
         return jsonify(access_token=access_token), 200
     return jsonify({"msg": "Bad username or password"}), 401
 
@@ -60,7 +61,7 @@ def protected():
 
 def role_required(role):
     """Create a decorator that restricts access to users with a given role."""
-    def wraps(func):
+    def wrapper(func):
         """Wrap a view function with role-based JWT authorization."""
         @wraps(func)
         @jwt_required()
@@ -71,7 +72,7 @@ def role_required(role):
                 return jsonify({"msg": "Forbidden"}), 403
             return func(*args, **kwargs)
         return decorator
-    return wraps
+    return wrapper
 
 
 @app.route('/admin', methods=['GET'])
