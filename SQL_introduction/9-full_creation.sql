@@ -1,11 +1,11 @@
 -- Creates a new table called second_table.
-create table if not exists second_table (
-    id int,
-    name varchar(256),
-    score int
+CREATE TABLE IF NOT EXISTS second_table (
+    ID INT,
+    NAME VARCHAR(256),
+    SCORE INT
 );
-insert into second_table (id, name, score)
-values (1, 'John', 10),
+INSERT INTO second_table (ID, NAME, SCORE)
+VALUES (1, 'John', 10),
        (2, 'Alex', 3),
        (3, 'Bob', 14),
        (4, 'George', 8);
