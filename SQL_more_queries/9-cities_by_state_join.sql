@@ -1,4 +1,4 @@
 -- Lists all cities contained in the database hbtn_0d_usa.
-select cities.id, cities.name, states.name from cities
-join states on cities.state_id = states.id
-order by cities.id ASC;
+SELECT cities.id, cities.name, states.name FROM cities
+JOIN states ON cities.state_id = states.id
+ORDER BY cities.id ASC;
