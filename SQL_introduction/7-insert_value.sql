@@ -1,3 +1,3 @@
 -- Inserts a new row in the table first_table
-insert into first_table (id, name)
-values (89, 'Best School');
+INSERT INTO first_table (ID, NAME)
+VALUES (89, 'Best School');
