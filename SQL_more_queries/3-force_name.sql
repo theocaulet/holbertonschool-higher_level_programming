@@ -1,5 +1,5 @@
 -- Create the table force_name
-create table if not exists force_name (
-    id int,
-    name varchar(256) not null
+CREATE TABLE IF NOT EXISTS force_name (
+    ID INT,
+    NAME VARCHAR(256) NOT NULL
 )
