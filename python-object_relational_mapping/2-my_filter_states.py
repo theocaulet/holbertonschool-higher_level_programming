@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Lists all states with a name starting with N."""
+"""Display all values in the states table."""
 import MySQLdb
 import sys
 
