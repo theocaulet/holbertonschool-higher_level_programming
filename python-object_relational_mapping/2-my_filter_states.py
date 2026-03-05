@@ -6,6 +6,8 @@ import sys
 
 def main():
     """Define the main function"""
+    if len(sys.argv) != 5:
+        return
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
