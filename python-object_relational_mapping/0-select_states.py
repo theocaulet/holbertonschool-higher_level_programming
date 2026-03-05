@@ -3,7 +3,9 @@
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
+
+def main():
+    """Define the main function"""
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -11,8 +13,12 @@ if __name__ == "__main__":
                          passwd=password, db=database)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+    states = cursor.fetchall()
+    for state in states:
+        print(state)
     cursor.close()
     db.close()
+
+
+if __name__ == "__main__":
+    main()
