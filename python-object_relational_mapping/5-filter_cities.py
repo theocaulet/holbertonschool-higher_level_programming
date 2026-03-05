@@ -7,6 +7,9 @@ import sys
 
 def main():
     """Define the main function"""
+    if len(sys.argv) != 5:
+        return
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -14,13 +17,12 @@ def main():
     db = MySQLdb.connect(host='localhost', port=3306, user=username,
                          passwd=password, db=database)
     cursor = db.cursor()
-    cursor.execute("SELECT cities.id, cities.name FROM cities"
+    cursor.execute("SELECT cities.name FROM cities"
                    " JOIN states ON cities.state_id = states.id"
                    " WHERE states.name = %s"
                    " ORDER BY cities.id ASC", (state,))
-    states = cursor.fetchall()
-    for state in states:
-        print(state)
+    cities = cursor.fetchall()
+    print(", ".join(city[0] for city in cities))
     cursor.close()
     db.close()
 
