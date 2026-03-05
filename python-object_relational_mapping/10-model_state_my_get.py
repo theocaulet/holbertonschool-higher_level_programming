@@ -19,7 +19,7 @@ def main():
     session = session()
     states = session.query(State).filter(State.name == search).first()
     if states:
-        print("{}".format(states.name))
+        print("{}".format(states.id))
     else:
         print("Not found")
     session.close()
