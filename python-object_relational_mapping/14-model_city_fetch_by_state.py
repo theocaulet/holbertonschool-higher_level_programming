@@ -3,6 +3,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
+from model_city import City
 import sys
 
 
@@ -16,9 +17,10 @@ def main():
                                                        database))
     session = sessionmaker(bind=engine)
     session = session()
-    cities = session.query(City).order_by(City.id).all()
-    for City in cities:
-        print("{}: ({}) {}".format(City.id, City.state_id, City.name))
+    cities = session.query(State, City).filter(State.id == City.state_id).\
+        order_by(City.id).all()
+    for state, city in cities:
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
     session.commit()
     session.close()
 
