@@ -1,0 +1,10 @@
+0. Creating a Simple Templating Program
+In this task, you will create a Python function that generates personalized invitation files from a template with placeholders and a list of objects. Each output file should be named sequentially, starting from 1. You will also implement specific error handling for various edge cases.
+1. Creating a Basic HTML Template in Flask
+In this task, you will build a basic Flask application that serves a web page using a Jinja template. You will create a simple HTML template that includes various elements like headings, paragraphs, and lists, and learn how to render it as a web page using Flask. Additionally, you will learn to create reusable templates for headers and footers to promote code reusability and consistency across multiple pages.
+2. Creating a Dynamic Template with Loops and Conditions in Flask
+In this task, you will enhance your Flask application by integrating dynamic content into your HTML templates using Jinja's loop and conditional constructs. You will read a list of items from a JSON file and display them dynamically on a web page.
+3. Displaying Data from JSON or CSV Files in Flask
+In this task, you will build a feature in your Flask application to read and display product data from two different data formats: JSON and CSV. You will create a single HTML template that can display data from either file type, depending on a query parameter provided in the URL. You will add functionality to your Flask application to filter product data based on an optional id query parameter. Additionally, you will handle edge cases such as invalid source parameter values or when the specified id is not found in the data.
+4. Extending Dynamic Data Display to Include SQLite in Flask
+Building on the previous exercise, you will now add the functionality to fetch and display data from a SQLite database in your Flask application. The application should allow users to choose between JSON, CSV, and SQL (SQLite database) as data sources using the source query parameter.
