@@ -26,9 +26,15 @@ def contact():
 @app.route('/items')
 def items():
     """Render the items page with data from items.json."""
-    with open('items.json', 'r') as file:
-        items_data = json.load(file)
-    return render_template('items.html', items=items_data["items"])
+    try:
+        with open('items.json', 'r') as file:
+            items_data = json.load(file)
+        items_list = items_data.get("items", [])
+    except FileNotFoundError:
+        items_list = []
+    except json.JSONDecodeError:
+        items_list = []
+    return render_template('items.html', items=items_list)
 
 
 if __name__ == "__main__":
