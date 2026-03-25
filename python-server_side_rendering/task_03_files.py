@@ -34,6 +34,8 @@ def items():
 
 @app.route('/products')
 def products():
+    """Render the products page with data from
+      either products.json or products.csv based on query parameters."""
     source = request.args.get('source')
     id = request.args.get('id')
 
@@ -47,18 +49,22 @@ def products():
 
     if id:
         products_data = [product for product in products_data
-                        if product['id'] == int(id)]
+                         if product['id'] == int(id)]
         if not products_data:
             return render_template('product_display.html', error="Product not found")
     return render_template('product_display.html', products=products_data)
 
 
 def read_json():
+    """Read products from products.json and
+      return as a list of dictionaries."""
     with open('products.json', 'r') as file:
         return json.load(file)
 
 
 def read_csv():
+    """Read products from products.csv and
+      return as a list of dictionaries."""
     with open('products.csv', 'r') as file:
         reader = csv.DictReader(file)
         return [{"id": int(row["id"]),
